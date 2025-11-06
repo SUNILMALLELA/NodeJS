@@ -6,8 +6,8 @@ const joinPath = path.join('Sunil', 'Kumar', 'Reddy')
 console.log("The Joinpath is", joinPath);
 const normalPath = 'C:/Users//Sunil/../Documents/example.txt'
 console.log("The normal path:", path.normalize(normalPath));
-const resolvePath = 'C:/Users//Sunil/../Documents/example.txt'
-console.log("The resolvepathis :", path.resolve(resolvePath));
+const absolutePath = path.resolve('folder1', 'folder2', 'file.txt');
+console.log('Resolved Absolute Path:', absolutePath);
 
 
 
