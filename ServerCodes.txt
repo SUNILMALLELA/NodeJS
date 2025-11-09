@@ -1,0 +1,6 @@
+
+Method	      	   	Success Code       	Failure Code
+POST		        201        	         400 Not Found, 500
+GET		            200 	             404 Not Found, 500
+PUT	                200	                 404 Not Found, 500
+DELETE		        200                  404 Not Found, 500
