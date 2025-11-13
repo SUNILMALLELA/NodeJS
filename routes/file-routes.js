@@ -2,23 +2,14 @@ const express = require('express')
 const router = express.Router()
 const authMiddleware = require('../Middleware/userMiddleware')
 const adminMiddleware = require('../Middleware/adminMiddleware')
-router.get('/upload', authMiddleware, adminMiddleware, (req, res) => {
-
-})
+const fileMiddleware = require('../Middleware/fileMiddleware')
+const { uploadImage, getImage } = require('../controllers/fileUploadController')
+router.post('/upload', authMiddleware, adminMiddleware, fileMiddleware.single('image'), uploadImage)
+router.get('/uploads', authMiddleware, getImage)
 module.exports = router
 
 
 
 
-
-// const express = require('express');
-// const router = express.Router();
-// const multer = require('multer');
-// const { uploadImage } = require('../controllers/fileUploadController');
-// const upload = multer({ dest: 'uploads/' });
-// router.post('/upload', upload.single('myFile'), uploadImage);
-// router.post('/upload1', uploadImage);
-
-// module.exports = router;
 
 
