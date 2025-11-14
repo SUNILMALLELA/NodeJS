@@ -15,14 +15,10 @@ app.use('/api/home', homeroutes)
 app.use('/api/admin', adminroutes)
 app.use('/api/files', fileRoutes);
 app.use('/api/getfiles', fileRoutes)
+app.use('/public', express.static('public'))
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
   console.log(` Server running on port ${PORT}`)
 })
 
-// PORT=3000
-// MONGO_URI=mongodb://localhost:27017/booksAPI
-// JWT_SECRET_KEY=JWT_SECRET_KEY
-// CLOUDINARY_CLOUD_NAME=dhzx98mex
-// CLOUDINARY_API_KEY=325596253216391
-// CLOUDINARY_API_SECRET=u3AXYUNbWM4oMXl4vdXHSo1c7K8
+
