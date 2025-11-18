@@ -1,0 +1,194 @@
+Below is a complete, professional SRS (Software Requirements Specification) document based on your MERN-stack application needs.
+You can copy this into Word/PDF — or tell me if you want it reformatted as IEEE-830 compliant, ISO/IEC/IEEE 29148-2018 compliant, or with diagrams (DFD, UML, ERD, Use Case diagrams).
+Software Requirements Specification (SRS)
+MERN Stack Job Management Application
+Version 1.0
+1. Introduction
+1.1 Purpose
+This SRS document defines the functional and non-functional requirements for a MERN-stack application that manages job creation, job processing, document uploads, and role-based access for Master and Analyst users.
+The system will allow Master users to create analysts, manage login credentials, create jobs, assign jobs, download job trackers, and close cases.
+Analyst users will update statuses, upload annexures, and close assigned cases.
+1.2 Scope
+The system is a web-based application built using:
+Frontend: React.js
+Backend: Node.js + Express.js
+Database: MongoDB
+Authentication: JWT
+File Uploads: Multer
+The system will provide:
+Secure login for Master and Analyst users
+Job creation with automatic job ID generation
+Uploading of candidate documents (PDF/JPG/PNG)
+Status updates by Analysts
+Annexure upload by Analysts
+Job assignment by Master
+Tracker download by Master
+The application is intended for internal operational use.
+1.3 Definitions / Acronyms
+Term
+Definition
+Master User
+Admin-level user with full permissions
+Analyst User
+User responsible for processing assigned jobs
+Job
+Case record created for a candidate
+Annexure
+Additional document uploaded by Analyst
+JWT
+JSON Web Token for authentication
+CRUD
+Create, Read, Update, Delete
+1.4 References
+MERN Stack Documentation
+JWT Authentication Docs
+Multer File Upload Docs
+2. Overall Description
+2.1 Product Perspective
+The system is a standalone web application using a client–server architecture.
+High-Level Architecture
+React frontend communicates with Node/Express backend via REST APIs.
+MongoDB handles persistent data storage.
+Multer handles file uploads to a server directory.
+Authentication uses JWT tokens stored in browser localStorage.
+2.2 Product Functions
+Master User
+Login
+Create analyst users
+Reset user passwords
+Create jobs
+Upload documents (PDF/JPG/PNG)
+Assign jobs to Analysts
+View all jobs
+Close jobs
+Download Excel/CSV tracker
+Analyst User
+Login
+View assigned jobs
+Update status
+Upload annexures
+Close job (if authorized)
+2.3 User Characteristics
+User Type
+Technical Skill Level
+Responsibilities
+Master
+Moderate
+Administration, job creation, user management
+Analyst
+Basic
+Job processing and document uploads
+2.4 Constraints
+Internet connection required
+Browser-based access
+File uploads must be limited to PDF/JPG/PNG
+Authentication must follow role-based authorization
+2.5 Assumptions and Dependencies
+Users have valid email IDs
+Roles will remain limited to Master and Analyst
+Document upload size will follow server configuration
+3. Functional Requirements
+3.1 User Authentication
+FR-01: User Login
+The system shall allow users to log in using email and password.
+The system shall verify user role (Master/Analyst) after login.
+The system shall return a JWT token upon successful login.
+FR-02: Role-Based Authorization
+The system shall restrict certain features to Master users only.
+The system shall allow analysts to access only their assigned jobs.
+3.2 Master User Features
+FR-03: Create Users
+The system shall allow Master to create Analyst accounts.
+The system shall hash passwords before storing.
+FR-04: Reset Password
+The system shall allow Master to reset passwords for any user.
+FR-05: Create Job
+The system shall allow Master to create a job with fields:
+Field
+Requirement
+Job ID
+Auto-increment
+Candidate Name
+Required
+Address
+Required
+Date of Birth
+Required
+Period of Stay
+Required
+Status
+Default “Open”
+Document Upload
+PDF/JPG/PNG
+FR-06: Assign Job
+The system shall allow Master to assign a job to an Analyst user.
+FR-07: Download Job Tracker
+The system shall allow Master to download all jobs as CSV/Excel.
+3.3 Analyst Features
+FR-08: View Assigned Jobs
+Analyst shall view only jobs assigned to them.
+FR-09: Update Job Status
+Analyst shall be able to change job status (e.g., In-Progress, Completed).
+FR-10: Upload Annexures
+Analyst shall upload additional documents to the job.
+FR-11: Close Job
+Analyst may close a job if permission is allowed.
+3.4 File Upload Requirements
+FR-12: Document Upload
+The system shall support PDF/JPG/PNG file types.
+The system shall store file paths in the database.
+FR-13: Annexure Upload
+The system shall allow multiple annexure uploads.
+4. Non-Functional Requirements
+4.1 Performance Requirements
+System must support at least 50 concurrent users.
+File uploads must be processed within 3 seconds under normal conditions.
+4.2 Security Requirements
+Passwords must be encrypted using bcrypt.
+JWT must be used for authentication.
+Only Master users must access administration APIs.
+4.3 Usability Requirements
+UI must be simple and mobile-friendly.
+Roles must clearly indicate available features.
+4.4 Reliability Requirements
+System uptime requirement: 99%.
+Data must persist even after unexpected shutdown.
+4.5 Maintainability Requirements
+Code must follow modular MVC architecture.
+API endpoints must be documented.
+4.6 Portability Requirements
+Application must run on all modern browsers.
+Backend must run on Node.js v18+.
+5. System Models
+5.1 Use Case Diagram (Text Format)
+Let me know if you want a graphical diagram.
+Master User Use Cases
+Login
+Create Analyst
+Reset Password
+Create Job
+Assign Job
+Upload Job Documents
+Download Tracker
+Close Job
+Analyst Use Cases
+Login
+View Assigned Jobs
+Update Status
+Upload Annexure
+Close Job
+6. Appendix
+Future Enhancements
+Email notifications
+Audit logging
+Multi-role support
+Job history logs
+Dashboard analytics
+✔ Your SRS is ready.
+Would you like me to also generate:
+✅ Use Case Diagrams
+✅ Sequence Diagrams
+✅ ER Diagram (Database)
+✅ API Documentation (OpenAPI/Swagger)
+✅ Full Project Code
+Just tell me!
